@@ -8,7 +8,6 @@ var state = app.state({
 
 app(document.body, state, function render(state) {
   return h('img.full', { src: state.get('img') });
-  //return h('h1', 'Hello World');
 });
 
 // socket client

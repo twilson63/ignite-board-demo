@@ -13,14 +13,9 @@ var io = require('socket.io').listen(server);
 
 server.listen(process.env.PORT || 3000);
 
-tw.track('#photo');
+tw.track('#' + process.argv[2]);
 tw.on('tweet', function(tweet){
   if (tweet.entities.media) {
     io.emit('img', tweet.entities.media[0].media_url);
   }
 });
-
-// setTimeout(function() {
-//   io.emit('img', '/test2-img.jpg');
-//   console.log('sent image');
-// }, 10000);

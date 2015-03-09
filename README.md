@@ -8,6 +8,18 @@ This example should demostrate most of node's features
 
 ## Usage
 
+Create a `config.json` file and put your twitter api info:
+
+``` json
+{
+  "consumer_key": "...",
+  "consumer_secret": "...",
+  "token":"...",
+  "token_secret": "..."
+}
+```
+
+
 ``` sh
 git clone git@github.com:twilson63/iboard-example.git
 npm install
