@@ -12,10 +12,15 @@ var server = http.createServer(
 var io = require('socket.io').listen(server);
 
 server.listen(process.env.PORT || 3000);
+var title = '#' + process.argv[2];
+tw.track(title);
 
-tw.track('#' + process.argv[2]);
 tw.on('tweet', function(tweet){
   if (tweet.entities.media) {
     io.emit('img', tweet.entities.media[0].media_url);
   }
+});
+
+io.on('connection', function(socket) {
+  socket.emit('title', 'Ignite Board - ' + title);
 });
